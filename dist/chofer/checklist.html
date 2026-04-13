@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../output.css" rel="stylesheet">
+    <title>Ruta360 - Checklist de Seguridad</title>
+</head>
+<body class="bg-[#F9FAFB] font-sans text-[#1F2937]">
+
+    <header class="p-6 border-b bg-white flex justify-between items-center sticky top-0 z-10">
+        <h1 class="text-[24px] font-black italic text-[#B91C1C]">ITRANS</h1>
+        <span class="text-[10px] font-black bg-[#1F2937] text-white px-3 py-1 uppercase tracking-widest">Seguridad</span>
+    </header>
+
+    <main class="p-6 space-y-8 max-w-md mx-auto pb-24">
+        <div>
+            <h2 class="text-[24px] font-black uppercase tracking-tighter">Validación Vehículo</h2>
+            <p class="text-[14px] text-gray-500 mt-2">Completa el chequeo antes de iniciar el servicio.</p>
+        </div>
+
+        <form class="space-y-6">
+            <fieldset class="space-y-4 bg-white p-6 border border-gray-100 shadow-sm">
+                <legend class="text-[11px] font-bold text-[#B91C1C] uppercase tracking-[0.2em] mb-4">Sistema Eléctrico</legend>
+                
+                <label class="flex items-center justify-between p-2 cursor-pointer">
+                    <span class="text-[14px] font-semibold">Luces Delanteras / Traseras</span>
+                    <input type="checkbox" class="w-6 h-6 accent-[#B91C1C]">
+                </label>
+                
+                <label class="flex items-center justify-between p-2 cursor-pointer border-t border-gray-50">
+                    <span class="text-[14px] font-semibold">Intermitentes / Emergencia</span>
+                    <input type="checkbox" class="w-6 h-6 accent-[#B91C1C]">
+                </label>
+            </fieldset>
+
+            <fieldset class="space-y-4 bg-white p-6 border border-gray-100 shadow-sm">
+                <legend class="text-[11px] font-bold text-[#B91C1C] uppercase tracking-[0.2em] mb-4">Mecánica y Neumáticos</legend>
+                
+                <label class="flex items-center justify-between p-2 cursor-pointer">
+                    <span class="text-[14px] font-semibold">Presión de Neumáticos</span>
+                    <input type="checkbox" class="w-6 h-6 accent-[#B91C1C]">
+                </label>
+                
+                <label class="flex items-center justify-between p-2 cursor-pointer border-t border-gray-50">
+                    <span class="text-[14px] font-semibold">Niveles de Aceite / Agua</span>
+                    <input type="checkbox" class="w-6 h-6 accent-[#B91C1C]">
+                </label>
+            </fieldset>
+
+            <div class="space-y-2">
+                <label class="text-[11px] font-bold text-gray-400 uppercase">Observaciones adicionales</label>
+                <textarea class="w-full border-b-2 border-gray-200 focus:border-[#B91C1C] outline-none py-2 text-[14px] resize-none" rows="2" placeholder="Opcional..."></textarea>
+            </div>
+
+            <div class="fixed bottom-0 left-0 right-0 p-6 bg-white border-t border-gray-100">
+                <button type="submit" class="w-full py-5 bg-[#B91C1C] text-white font-bold uppercase text-xs tracking-[0.3em] shadow-lg active:scale-95 transition-all">
+                    Confirmar Salida
+                </button>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>

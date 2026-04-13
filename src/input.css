@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Oficial Ruta360 / ITRANS v1.0 */
+  --color-itrans-red: #B91C1C;    /* Rojo corporativo para acentos y botones */
+  --color-itrans-dark: #1F2937;   /* Gris oscuro para Sidebar y títulos */
+  --color-itrans-bg: #F9FAFB;     /* Fondo ultra claro */
+  
+  /* Tipografía Oficial */
+  --font-size-itrans-main: 30px;  /* Main Title [cite: 8, 9, 13, 14, 15] */
+  --font-size-itrans-sub: 24px;   /* Subtitle [cite: 10, 27, 34] */
+  --font-size-itrans-body: 14px;  /* Texto de párrafo 14 pt [cite: 11, 12, 28, 31, 37] */
+}
+
+@layer base {
+  p {
+    /* Especificación 14pt de tamaño */
+    @apply text-[14px] leading-tight text-gray-600 font-medium; 
+  }
+}
+
+@layer components {
+  .btn-itrans {
+    /* Estilo "This is a button" [cite: 21, 32, 33] */
+    @apply px-6 py-4 bg-[--color-itrans-red] text-white font-bold uppercase tracking-[0.2em] text-xs rounded-sm hover:bg-red-800 transition-all inline-block shadow-md active:scale-95;
+  }
+}

@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  /* Aquí definimos los estilos del PDF ITRANS */
+  --font-size-itrans-main: 30px;
+  --font-size-itrans-sub: 24px;
+}O
+
