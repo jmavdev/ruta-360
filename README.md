@@ -16,7 +16,7 @@ Sistema integral de "Logística en transporte" diseñado para optimizar los reto
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 ## Por 
-[![GitHub](https://img.shields.io/badge/GitHub-ideasut-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jmavdev)
+[![GitHub](https://img.shields.io/badge/GitHub-jmavdev-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jmavdev)
 
 ## 🚀 Cómo ejecutarlo localmente
 
