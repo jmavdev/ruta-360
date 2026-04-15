@@ -22,4 +22,4 @@ Sistema integral de "Logística en transporte" diseñado para optimizar los reto
 
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone git@github.com:TU_USUARIO/ruta-360.git
+   git clone git@github.com:jmavdev/ruta-360.git
