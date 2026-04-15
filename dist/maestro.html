@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta 360 - Dashboard Maestro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rutaRed: '#d3121b', 
+                        rutaDark: '#221e1f',
+                        rutaGray: '#f4f5f7',
+                        rutaBorder: '#e5e7eb'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Efecto para convertir el logo blanco en negro total para el footer */
+        .logo-to-black {
+            filter: brightness(0);
+        }
+    </style>
+</head>
+<body class="bg-rutaGray h-screen flex overflow-hidden text-[#221e1f] font-sans">
+
+    <aside class="w-64 bg-rutaDark text-white flex flex-col shadow-xl transition-all duration-300 z-20 relative">
+        <div class="h-24 flex flex-col items-center justify-center border-b border-gray-700 bg-rutaDark pt-2 px-4">
+            <img src="./assets/img/brand/logo_white.png" alt="Ruta 360" class="h-12 w-auto object-contain">
+            <span class="text-[9px] font-bold text-gray-400 mt-1 uppercase tracking-[0.2em]">Logística en transporte</span>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 bg-rutaRed text-white rounded-xl transition-colors font-semibold text-sm shadow-md shadow-rutaRed/20">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                Dashboard
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                Activity
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                Protection
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                Update
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                Resource
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-700">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                Online Support
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden relative bg-[#f4f5f7]">
+        
+        <header class="bg-white h-20 flex items-center justify-between px-8 shadow-sm border-b border-rutaBorder z-10">
+            <div class="flex items-center gap-2">
+                <span class="text-sm text-gray-400 font-medium">Pages</span>
+                <span class="text-gray-400">/</span>
+                <span class="text-sm text-rutaDark font-bold">Dashboard</span>
+            </div>
+            <div class="flex items-center gap-5">
+                <button class="p-2 text-gray-400 hover:text-rutaRed transition-colors relative">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rutaRed rounded-full"></span>
+                </button>
+                <div class="w-9 h-9 rounded-full bg-rutaDark border-2 border-white shadow-md overflow-hidden flex items-center justify-center text-white font-bold text-xs">
+                    R3
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 p-8 overflow-y-auto">
+            
+            <div class="mb-8">
+                <h1 class="text-[30px] font-display font-bold text-rutaDark mb-2 leading-tight">Main Title, 30px de tamaño</h1>
+                <p class="text-[14px] text-gray-500 max-w-2xl leading-relaxed">Texto de párrafo, este texto tiene 14 pt de tamaño, no debiera ser más de 3 lineas en este párrafo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-[20px] shadow-sm border border-rutaBorder">
+                    <h3 class="text-5xl font-display font-black text-rutaDark mb-2">237</h3>
+                    <div class="h-2 w-12 bg-rutaRed rounded-full mb-4"></div>
+                    <p class="text-[14px] text-gray-500">Texto de párrafo, este texto tiene 14 pt de tamaño, no debiera ser más de 3 líneas en este párrafo.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-[20px] shadow-sm border border-rutaBorder">
+                    <h3 class="text-5xl font-display font-black text-rutaDark mb-2">149</h3>
+                    <div class="h-2 w-12 bg-gray-300 rounded-full mb-4"></div>
+                    <p class="text-[14px] text-gray-500">Texto de párrafo, este texto tiene 14 pt de tamaño, no debiera ser más de 3 líneas en este párrafo.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-[20px] shadow-sm border border-rutaBorder">
+                    <h3 class="text-5xl font-display font-black text-rutaDark mb-2">163</h3>
+                    <div class="h-2 w-12 bg-gray-300 rounded-full mb-4"></div>
+                    <p class="text-[14px] text-gray-500">Texto de párrafo, este texto tiene 14 pt de tamaño, no debiera ser más de 3 líneas en este párrafo.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-8">
+                
+                <div class="bg-white p-8 rounded-[24px] shadow-sm border border-rutaBorder">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-[24px] font-display font-bold text-rutaDark">Statistics One</h3>
+                        <span class="text-xs font-bold text-gray-500 bg-gray-100 px-4 py-1.5 rounded-full uppercase tracking-wider">Month</span>
+                    </div>
+                    <p class="text-[14px] text-gray-500 mb-8">Texto de párrafo, este texto tiene 14 pt de tamaño, no debiera ser más de 3 líneas en este párrafo.</p>
+                    
+                    <div class="h-40 flex items-end gap-3 mt-8">
+                        <div class="flex-1 bg-gray-100 rounded-t-lg h-[45%]"></div>
+                        <div class="flex-1 bg-gray-100 rounded-t-lg h-[65%]"></div>
+                        <div class="flex-1 bg-rutaRed rounded-t-lg h-full shadow-lg shadow-rutaRed/20"></div>
+                        <div class="flex-1 bg-gray-100 rounded-t-lg h-[80%]"></div>
+                        <div class="flex-1 bg-gray-100 rounded-t-lg h-[30%]"></div>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-between border-t border-gray-100 pt-6">
+                        <div>
+                            <span class="block text-[12px] font-bold text-gray-400 uppercase tracking-wider mb-1">Point One</span>
+                            <span class="font-display font-bold text-xl text-rutaDark">45%</span>
+                        </div>
+                        <div>
+                            <span class="block text-[12px] font-bold text-gray-400 uppercase tracking-wider mb-1">Point Two</span>
+                            <span class="font-display font-bold text-xl text-rutaDark">30%</span>
+                        </div>
+                        <div>
+                            <span class="block text-[12px] font-bold text-gray-400 uppercase tracking-wider mb-1">Point Three</span>
+                            <span class="font-display font-bold text-xl text-rutaDark">25%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-[24px] shadow-sm border border-rutaBorder flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-[24px] font-display font-bold text-rutaDark mb-1">Outcome</h3>
+                        <h2 class="text-[48px] font-display font-black text-rutaRed mb-4 leading-none">$351,45</h2>
+                        <p class="text-[14px] text-gray-500 mb-8">Texto de párrafo, este texto tiene 14 pt de tamaño, no debiera ser más de 3 líneas en este párrafo.</p>
+                    </div>
+                    
+                    <div class="bg-[#f4f5f7] p-6 rounded-[20px] border border-gray-200">
+                        <h4 class="text-[24px] font-display font-bold text-rutaDark mb-4">Subtitle 24pts</h4>
+                        
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-4xl font-display font-black text-rutaDark">75%</span>
+                            <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-rutaRed w-3/4 rounded-full"></div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-[14px] text-gray-500 mb-6">Texto de párrafo, este texto tiene 14 pt de tamaño, no debiera ser más de 3 lineas en este párrafo.</p>
+                        
+                        <div class="flex gap-4">
+                            <button class="flex-1 py-4 bg-rutaRed text-white text-[12px] font-bold uppercase tracking-wider rounded-xl hover:bg-[#b00f16] transition-colors shadow-lg shadow-rutaRed/30">
+                                This is a button
+                            </button>
+                            <button class="flex-1 py-4 bg-white text-rutaDark border-2 border-gray-200 text-[12px] font-bold uppercase tracking-wider rounded-xl hover:border-rutaDark transition-colors">
+                                This is a button
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="bg-gray-100 border-t border-gray-200 px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4 mt-auto z-10">
+            <div class="flex items-center gap-4">
+                <img src="./assets/img/brand/logo_white.png" alt="Ruta 360 Footer" class="h-8 w-auto object-contain logo-to-black opacity-60">
+                <div class="h-6 w-[1px] bg-gray-300 hidden md:block"></div>
+                <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+                    Logística en transporte
+                </p>
+            </div>
+            
+            <div class="text-[11px] font-bold text-gray-500 uppercase tracking-tighter">
+                Por ideasut - <span id="current-year"></span>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('current-year').textContent = `@${new Date().getFullYear()}`;
+    </script>
+</body>
+</html>

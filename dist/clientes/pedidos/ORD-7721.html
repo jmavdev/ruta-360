@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Pedido #ORD-7721 - Ruta 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rutaRed: '#d3121b', 
+                        rutaDark: '#221e1f',
+                        rutaGray: '#f4f5f7',
+                        rutaBorder: '#e5e7eb'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-rutaDark/20 h-screen flex items-center justify-center font-sans p-4">
+
+    <div class="bg-white w-full max-w-5xl max-h-[90vh] rounded-[32px] shadow-2xl overflow-hidden flex flex-col border border-rutaBorder">
+        
+        <div class="p-8 border-b border-rutaBorder flex justify-between items-center bg-white shrink-0">
+            <div class="flex items-center gap-4">
+                <div class="bg-rutaRed/10 p-3 rounded-2xl">
+                    <i data-lucide="package" class="w-8 h-8 text-rutaRed"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-2xl font-display font-black text-rutaDark italic uppercase">Pedido #ORD-7721</h2>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-[10px] font-black uppercase tracking-widest">Preparando Carga</span>
+                    </div>
+                    <p class="text-gray-400 text-xs font-bold mt-1 uppercase tracking-tighter">Creado el 15 de Abril, 2026 • 08:30 AM</p>
+                </div>
+            </div>
+            <button class="p-2 hover:bg-rutaGray rounded-xl transition-colors text-gray-400">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-8 bg-[#fcfcfc]">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="lg:col-span-1 space-y-6">
+                    <h4 class="font-display font-black text-rutaDark text-sm uppercase tracking-widest italic">Estado del Servicio</h4>
+                    
+                    <div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-rutaRed before:via-gray-200 before:to-gray-200">
+                        
+                        <div class="relative flex items-center gap-6 group">
+                            <div class="w-10 h-10 rounded-full bg-rutaRed flex items-center justify-center text-white z-10 shadow-lg shadow-rutaRed/30">
+                                <i data-lucide="check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-black text-rutaDark uppercase leading-none">Orden Recibida</p>
+                                <p class="text-[11px] text-gray-400 font-medium">15 Abr • 08:30 AM</p>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-center gap-6 group">
+                            <div class="w-10 h-10 rounded-full bg-white border-4 border-rutaRed flex items-center justify-center text-rutaRed z-10 shadow-md">
+                                <div class="w-2 h-2 bg-rutaRed rounded-full animate-ping"></div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-black text-rutaRed uppercase leading-none italic">Preparando Carga</p>
+                                <p class="text-[11px] text-gray-500 font-bold uppercase italic mt-1">En proceso en Bodega Norte</p>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-center gap-6 group opacity-40">
+                            <div class="w-10 h-10 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-gray-400 z-10">
+                                <i data-lucide="truck" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-500 uppercase">En Tránsito</p>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-center gap-6 group opacity-40">
+                            <div class="w-10 h-10 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-gray-400 z-10">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-500 uppercase">Entregado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-rutaBorder">
+                        <button class="w-full py-4 bg-rutaDark text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-rutaRed transition-all flex items-center justify-center gap-3">
+                            <i data-lucide="file-text" class="w-4 h-4"></i> Descargar Manifiesto PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-3xl border border-rutaBorder shadow-sm">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="user" class="w-4 h-4 text-gray-400"></i>
+                                <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Información de Destino</span>
+                            </div>
+                            <p class="font-display font-black text-rutaDark text-lg">Distribuidora Norte S.A.</p>
+                            <p class="text-sm text-gray-500 font-medium">Av. Américo Vespucio 1234, Quilicura</p>
+                            <p class="text-sm text-gray-500 font-medium italic mt-1">Contacto: Juan Pérez (+56 9 1234 5678)</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-3xl border border-rutaBorder shadow-sm">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-gray-400"></i>
+                                <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Transporte Asignado</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-rutaGray rounded-2xl flex items-center justify-center text-rutaDark font-black text-xs">CH</div>
+                                <div>
+                                    <p class="font-bold text-rutaDark">Carlos Hernández</p>
+                                    <p class="text-[11px] text-gray-400 uppercase font-black tracking-tighter">Toyota Yaris XLI • BJ-FK-88</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl border border-rutaBorder overflow-hidden shadow-sm">
+                        <div class="p-5 bg-rutaGray/50 border-b border-rutaBorder">
+                            <h5 class="text-xs font-black text-rutaDark uppercase tracking-widest italic">Desglose de Carga</h5>
+                        </div>
+                        <table class="w-full text-left">
+                            <thead class="text-[10px] font-black text-gray-400 uppercase border-b border-rutaBorder bg-white">
+                                <tr>
+                                    <th class="px-6 py-3">Sku</th>
+                                    <th class="px-6 py-3">Descripción del Producto</th>
+                                    <th class="px-6 py-3 text-center">Cant.</th>
+                                    <th class="px-6 py-3 text-right">Peso Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-rutaBorder">
+                                <tr class="text-xs">
+                                    <td class="px-6 py-4 font-bold text-rutaRed">SKU-001</td>
+                                    <td class="px-6 py-4 font-medium text-rutaDark">Pack Neumáticos Michelin Primacy 4</td>
+                                    <td class="px-6 py-4 text-center font-bold">04</td>
+                                    <td class="px-6 py-4 text-right font-bold">32.4 kg</td>
+                                </tr>
+                                <tr class="text-xs">
+                                    <td class="px-6 py-4 font-bold text-rutaRed">SKU-042</td>
+                                    <td class="px-6 py-4 font-medium text-rutaDark">Aceite Sintético 5W-30 (Bidón 5L)</td>
+                                    <td class="px-6 py-4 text-center font-bold">12</td>
+                                    <td class="px-6 py-4 text-right font-bold">58.0 kg</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-rutaGray/30">
+                                    <td colspan="3" class="px-6 py-4 text-right font-black text-[10px] uppercase tracking-widest text-gray-400">Peso Total Estimado:</td>
+                                    <td class="px-6 py-4 text-right font-display font-black text-rutaDark">90.4 KG</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="p-4 bg-red-50 border border-red-100 rounded-2xl flex items-center gap-4">
+                        <div class="bg-rutaRed p-2 rounded-lg text-white">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black text-rutaRed uppercase tracking-tight italic">Servicio de Prioridad Crítica</p>
+                            <p class="text-[11px] text-red-700/70 font-medium">Este pedido requiere entrega antes de las 13:00 PM del día de hoy.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 bg-white border-t border-rutaBorder flex justify-between items-center shrink-0">
+            <button class="px-6 py-2 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] hover:text-rutaDark transition-all">Reportar Incidencia</button>
+            <div class="flex gap-3">
+                <button class="px-8 py-3 bg-rutaGray text-rutaDark rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-rutaBorder transition-all">Cerrar</button>
+                <button class="px-8 py-3 bg-rutaRed text-white rounded-xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-rutaRed/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                    <i data-lucide="navigation" class="w-4 h-4"></i> Ir al Seguimiento
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

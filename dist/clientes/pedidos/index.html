@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta 360 - Dashboard Cliente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rutaRed: '#d3121b', 
+                        rutaDark: '#221e1f',
+                        rutaGray: '#f4f5f7',
+                        rutaBorder: '#e5e7eb'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .logo-to-black { filter: brightness(0); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 10px; }
+        .map-dot { animation: pulse-red 2s infinite; }
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 18, 27, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(211, 18, 27, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 18, 27, 0); }
+        }
+    </style>
+</head>
+<body class="bg-rutaGray h-screen flex overflow-hidden font-sans text-[14px] text-rutaDark">
+
+    <aside class="w-64 bg-rutaDark text-white flex flex-col shrink-0 z-20 shadow-xl">
+        <div class="h-[80px] flex items-center px-6 border-b border-white/10">
+            <img src="../assets/img/brand/logo_white.png" alt="Ruta 360" class="h-9 w-auto object-contain">
+        </div>
+
+        <nav class="flex-1 px-4 py-8 space-y-2">
+            <a href="#" class="flex items-center gap-4 px-4 py-3 bg-rutaRed text-white rounded-xl font-bold shadow-lg shadow-rutaRed/20">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <span>Panel de Control</span>
+            </a>
+            <a href="#pedidos" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium">
+                <i data-lucide="package" class="w-5 h-5"></i>
+                <span>Mis Pedidos</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium">
+                <i data-lucide="map" class="w-5 h-5"></i>
+                <span>Rutas Activas</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium relative">
+                <i data-lucide="message-square" class="w-5 h-5"></i>
+                <span>Mensajería</span>
+                <span class="absolute right-4 w-2 h-2 bg-rutaRed rounded-full"></span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-white/10">
+            <button class="flex items-center gap-4 px-4 py-3 text-gray-500 hover:text-white w-full group transition-colors">
+                <i data-lucide="log-out" class="w-5 h-5 group-hover:text-rutaRed"></i>
+                <span class="font-medium">Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0">
+        
+        <header class="h-[80px] bg-white border-b border-rutaBorder flex items-center justify-between px-8 shrink-0 z-10">
+            <div class="flex items-center gap-4 text-gray-400 font-medium">
+                <span class="text-rutaDark font-bold">Dashboard</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-xs uppercase tracking-widest font-black">Vista General</span>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-3 pr-6 border-r border-rutaBorder">
+                    <div class="text-right hidden sm:block">
+                        <p class="font-bold text-rutaDark leading-none text-sm uppercase">Distribuidora Global S.A.</p>
+                        <span class="text-[10px] text-rutaRed font-black uppercase tracking-widest">Premium Partner</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-rutaDark flex items-center justify-center text-white font-bold border-2 border-white shadow-md">
+                        <span class="text-xs">DG</span>
+                    </div>
+                </div>
+                <button class="relative text-gray-400 hover:text-rutaRed transition-transform hover:scale-110">
+                    <i data-lucide="bell" class="w-6 h-6"></i>
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-rutaRed text-white text-[9px] flex items-center justify-center rounded-full font-black ring-2 ring-white">3</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-8 bg-[#f8f9fb]">
+            
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h1 class="text-3xl font-display font-black text-rutaDark uppercase tracking-tighter italic leading-none">Control Logístico</h1>
+                    <p class="text-gray-500 font-medium mt-1">Monitoreo de flota y gestión de carga.</p>
+                </div>
+                <button class="px-6 py-3 bg-rutaRed text-white text-[12px] font-bold uppercase tracking-widest rounded-xl hover:bg-[#b00f16] transition-all shadow-lg shadow-rutaRed/30 flex items-center gap-2">
+                    <i data-lucide="plus" class="w-4 h-4"></i> Nuevo Pedido
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-[24px] border border-rutaBorder shadow-sm">
+                    <div class="bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 text-rutaDark">
+                        <i data-lucide="truck" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-gray-400 font-bold text-[11px] uppercase tracking-wider">Servicios en Curso</p>
+                    <p class="text-4xl font-display font-black text-rutaDark">14</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[24px] border-l-4 border-l-rutaRed shadow-sm">
+                    <div class="bg-red-50 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 text-rutaRed animate-pulse">
+                        <i data-lucide="alert-circle" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-rutaRed font-black text-[11px] uppercase tracking-wider">Alertas Activas</p>
+                    <p class="text-4xl font-display font-black text-rutaDark">02</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[24px] border border-rutaBorder shadow-sm">
+                    <div class="bg-blue-50 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 text-blue-600">
+                        <i data-lucide="navigation" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-gray-400 font-bold text-[11px] uppercase tracking-wider">Entregas Hoy</p>
+                    <p class="text-4xl font-display font-black text-rutaDark">48</p>
+                </div>
+
+                <div class="bg-rutaDark p-6 rounded-[24px] shadow-xl text-white relative overflow-hidden">
+                    <p class="text-gray-400 font-bold text-[10px] uppercase tracking-widest mb-1">Ejecutivo Ruta 360</p>
+                    <p class="text-lg font-bold">Roberto Sánchez</p>
+                    <button class="mt-4 w-full py-2 bg-white/10 hover:bg-rutaRed rounded-lg text-[11px] font-black uppercase tracking-widest transition-all">Chat Directo</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+                <div class="lg:col-span-2 bg-white rounded-[24px] border border-rutaBorder shadow-sm relative overflow-hidden h-[400px]">
+                    <div class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-rutaBorder">
+                        <div class="flex items-center gap-3">
+                            <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-gray-500">Unidad #RT-2024-001</span>
+                        </div>
+                    </div>
+                    <div class="w-full h-full bg-[#e2e8f0] flex items-center justify-center relative">
+                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="bg-rutaRed text-white p-3 rounded-full shadow-2xl map-dot">
+                                <i data-lucide="truck" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[24px] border border-rutaBorder shadow-sm flex flex-col h-[400px] overflow-hidden">
+                    <div class="p-4 border-b border-rutaBorder bg-rutaGray/30 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-rutaDark text-white text-[10px] flex items-center justify-center font-bold">CH</div>
+                        <p class="font-bold text-xs uppercase tracking-tight">Carlos Hernández (Chofer)</p>
+                    </div>
+                    <div class="flex-1 p-4 space-y-4 overflow-y-auto bg-rutaGray/10">
+                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-rutaBorder shadow-sm max-w-[90%]">
+                            <p class="text-xs font-medium italic">"Iniciando descarga en Sucursal Norte. Estimo 30 minutos."</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white border-t border-rutaBorder flex gap-2">
+                        <input type="text" placeholder="Escribir..." class="flex-1 bg-rutaGray rounded-xl px-4 py-2 text-xs border-none outline-none">
+                        <button class="bg-rutaDark text-white p-2.5 rounded-xl hover:bg-rutaRed transition-colors">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <section id="pedidos" class="bg-white rounded-[24px] border border-rutaBorder shadow-sm overflow-hidden mb-10">
+                <div class="p-6 border-b border-rutaBorder flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-display font-black text-rutaDark uppercase italic tracking-tight text-xl">Gestión de Pedidos</h3>
+                        <div class="flex gap-2 mt-4">
+                            <button class="px-4 py-1.5 rounded-lg bg-rutaDark text-white text-[10px] font-black uppercase">Todos</button>
+                            <button class="px-4 py-1.5 rounded-lg bg-rutaGray text-gray-500 text-[10px] font-bold uppercase hover:bg-rutaBorder">Pendientes</button>
+                            <button class="px-4 py-1.5 rounded-lg bg-rutaGray text-gray-500 text-[10px] font-bold uppercase hover:bg-rutaBorder">Entregados</button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-gray-400"></i>
+                        <input type="text" placeholder="ID o Cliente..." class="bg-rutaGray border-none rounded-xl pl-10 pr-4 py-2 text-xs w-64">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-rutaGray/50 text-gray-400 text-[10px] font-black uppercase tracking-widest border-b border-rutaBorder">
+                                <th class="px-6 py-4">ID Pedido</th>
+                                <th class="px-6 py-4">Cliente / Destino</th>
+                                <th class="px-6 py-4">Prioridad</th>
+                                <th class="px-6 py-4 text-center">Estado</th>
+                                <th class="px-6 py-4 text-right">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-rutaBorder">
+                            <tr class="hover:bg-rutaGray/30 transition-colors">
+                                <td class="px-6 py-5 font-display font-bold text-rutaDark">#ORD-7721</td>
+                                <td class="px-6 py-5 font-medium">
+                                    <p class="font-bold">Distribuidora Norte</p>
+                                    <span class="text-[10px] text-gray-400">Quilicura, RM</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="text-rutaRed font-black text-[10px] uppercase flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 bg-rutaRed rounded-full"></span> Crítica
+                                    </span>
+                                </td>
+                                <td class="px-6 py-5 text-center">
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-[10px] font-black uppercase tracking-widest">Preparando</span>
+                                </td>
+                                <td class="px-6 py-5 text-right">
+                                    <button class="w-8 h-8 rounded-lg bg-rutaGray hover:bg-rutaDark hover:text-white transition-all inline-flex items-center justify-center">
+                                        <i data-lucide="eye" class="w-4 h-4"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-rutaGray/30 transition-colors">
+                                <td class="px-6 py-5 font-display font-bold text-rutaDark">#ORD-7718</td>
+                                <td class="px-6 py-5 font-medium">
+                                    <p class="font-bold">Retail Logística S.A.</p>
+                                    <span class="text-[10px] text-gray-400">Maipú, RM</span>
+                                </td>
+                                <td class="px-6 py-5 text-blue-600 font-black text-[10px] uppercase">Normal</td>
+                                <td class="px-6 py-5 text-center">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest">En Tránsito</span>
+                                </td>
+                                <td class="px-6 py-5 text-right">
+                                    <button class="w-8 h-8 rounded-lg bg-rutaGray hover:bg-rutaDark hover:text-white transition-all inline-flex items-center justify-center">
+                                        <i data-lucide="eye" class="w-4 h-4"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-4 bg-rutaGray/10 border-t border-rutaBorder text-center">
+                    <button class="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-rutaDark transition-colors">Ver todos los pedidos</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -4,83 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
-    <title>Ruta360 - Login Corporativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,700;0,900;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Ruta 360 - Logística Inversa</title>
     <style>
-        /* Estilos dinámicos para el botón corporativo ITRANS */
+        body { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+        
         .btn-ruta360 {
-            background-color: #B91C1C !important;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: none;
+            background-color: #d3121b;
+            transition: all 0.3s ease;
         }
-        /* Efecto al pasar el mouse */
         .btn-ruta360:hover {
-            background-color: #991B1B !important;
+            background-color: #b00f16;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(185, 28, 28, 0.4);
-        }
-        /* Efecto al hacer foco (click o tabulación) */
-        .btn-ruta360:focus {
-            outline: none;
-            background-color: #7F1D1D !important;
-            box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.4);
-        }
-        /* Efecto al presionar */
-        .btn-ruta360:active {
-            transform: scale(0.95);
+            box-shadow: 0 10px 15px -3px rgba(211, 18, 27, 0.3);
         }
     </style>
 </head>
-<body style="margin:0; background-color: #adadad;" class="min-h-screen font-sans flex items-center justify-center lg:block overflow-x-hidden lg:overflow-hidden">
+<body class="bg-[#adadad] min-h-screen flex items-center justify-center lg:block overflow-x-hidden lg:overflow-hidden">
 
     <div class="flex flex-col lg:flex-row h-full lg:h-screen w-full">
 
         <div style="background-image: url('./assets/img/login/login_red.jpg'); 
                     background-size: cover; 
                     background-position: center; 
-                    background-color: #B91C1C; 
-                    background-blend-mode: multiply; 
-                    position: relative;" 
-             class="hidden lg:flex lg:w-[70%] items-center justify-center">
-            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(31, 41, 55, 0.4) 100%); z-index: 1;"></div>
+                    background-color: #d3121b; 
+                    background-blend-mode: multiply;" 
+             class="hidden lg:flex lg:w-[70%] items-center justify-center relative p-12">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-[#221e1f]/80 to-transparent"></div>
+            
+            <div class="relative z-10 max-w-2xl">
+                <h1 class="font-display font-black text-6xl text-white italic leading-tight uppercase tracking-tighter">
+                    Logística en Transporte
+                </h1>
+                
+            </div>
         </div>
 
-        <div style="background-color: #adadad;" 
-             class="w-full lg:w-[30%] flex items-center justify-center p-6 lg:p-8 min-h-screen lg:min-h-0">
+        <div class="w-full lg:w-[30%] flex items-center justify-center p-6 lg:p-8 min-h-screen lg:min-h-0 bg-[#adadad]">
             
-            <div style="background-color: #FFFFFF; border-radius: 60px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);" 
-                 class="w-full max-w-[420px] p-10 lg:p-14 text-center">
+            <div class="bg-white w-full max-w-[420px] p-10 lg:p-14 rounded-3xl shadow-2xl text-center">
                 
-                <div class="mb-8 flex justify-center">
-                    <img src="./assets/img/login/logo.png" style="height: 85px; lg:height: 105px; width: auto;" alt="Logo RUTA360">
+                <div class="mb-10 flex justify-center">
+                    <img src="./assets/img/brand/logo.png" class="h-20 lg:h-24 w-auto object-contain" alt="Logo RUTA 360">
                 </div>
 
                 <div class="mb-10 text-left">
-                    <h2 style="font-size: 24px; font-weight: 900; color: #1F2937; text-transform: uppercase; font-style: italic; margin: 0;">LOGIN</h2>
-                    <p style="color: #9CA3AF; font-size: 14px; margin-top: 5px; font-style: italic;">Ingrese sus credenciales</p> 
+                    <h1 class="font-display font-black italic text-2xl text-[#1F2937] uppercase tracking-wide">LOGIN</h1>
+                    <p class="text-gray-400 text-sm mt-1 italic">Acceso a la plataforma logística</p> 
                 </div>
 
                 <form class="flex flex-col gap-8 text-left">
-                    <div style="border-bottom: 2px solid #1F2937;">
-                        <label class="block text-[11px] font-bold text-[#9CA3AF] uppercase tracking-widest mb-1">Usuario</label>
-                        <input type="text" class="w-full py-2 outline-none bg-transparent text-[#1F2937]">
+                    <div class="border-b-2 border-[#221e1f]">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Usuario / Email</label>
+                        <input type="text" class="w-full py-2 outline-none bg-transparent text-[#221e1f] font-semibold">
                     </div>
 
-                    <div style="border-bottom: 2px solid #1F2937;">
-                        <label class="block text-[11px] font-bold text-[#9CA3AF] uppercase tracking-widest mb-1">Contraseña</label>
-                        <input type="password" class="w-full py-2 outline-none bg-transparent text-[#1F2937]">
+                    <div class="border-b-2 border-[#221e1f]">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Contraseña</label>
+                        <input type="password" class="w-full py-2 outline-none bg-transparent text-[#221e1f]">
                     </div>
 
                     <button type="submit" 
-                            style="letter-spacing: 0.25em;" 
-                            class="btn-ruta360 w-full py-5 text-white font-black text-xs uppercase rounded-xl mt-4">
-                        THIS IS A BUTTON
+                            class="btn-ruta360 w-full py-5 text-white font-display font-black text-xs uppercase tracking-[0.2em] rounded-xl mt-4">
+                        INGRESAR AL SISTEMA
                     </button>
                 </form>
 
-                <div class="mt-12 pt-6 border-t border-gray-100 flex justify-between text-[10px] font-black text-[#9CA3AF] uppercase">
-                    <span>Recuperar contraseña</span>
-                    <span>Ruta360 - 2026 [cite: 23]</span>
+                <div class="mt-12 pt-6 border-t border-gray-100 flex justify-between text-[9px] font-black text-gray-400 uppercase tracking-tighter">
+                    <a href="#" class="hover:text-red-600 transition-colors">Olvidé mi contraseña</a>
+                    <span>Ruta 360 &copy; 2026</span>
                 </div>
             </div>
         </div>
