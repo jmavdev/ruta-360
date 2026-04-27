@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruta 360 - Dashboard Cliente</title>
+    <title>Ruta 360 - Centro de Incidencias</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -27,236 +28,181 @@
     </script>
     <style>
         .logo-to-black { filter: brightness(0); }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 10px; }
-        .map-dot { animation: pulse-red 2s infinite; }
-        @keyframes pulse-red {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 18, 27, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(211, 18, 27, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 18, 27, 0); }
-        }
     </style>
 </head>
-<body class="bg-rutaGray h-screen flex overflow-hidden font-sans text-[14px] text-rutaDark">
+<body class="bg-rutaGray h-screen flex overflow-hidden text-[#221e1f] font-sans">
 
-    <aside class="w-64 bg-rutaDark text-white flex flex-col shrink-0 z-20 shadow-xl">
-        <div class="h-[80px] flex items-center px-6 border-b border-white/10">
-            <img src="../assets/img/brand/logo_white.png" alt="Ruta 360" class="h-9 w-auto object-contain">
+    <aside class="hidden md:flex w-64 bg-rutaDark text-white flex-col shadow-xl transition-all duration-300 z-20 relative">
+        <div class="h-24 flex flex-col items-center justify-center border-b border-gray-700 bg-rutaDark pt-2 px-4">
+            <img src="../assets/img/brand/logo_white.png" alt="Ruta 360" class="h-12 w-auto object-contain">
+            <span class="text-[9px] font-bold text-gray-400 mt-1 uppercase tracking-[0.2em]">LOGÍSTICA EN TRANSPORTE</span>
         </div>
 
-        <nav class="flex-1 px-4 py-8 space-y-2">
-            <a href="#" class="flex items-center gap-4 px-4 py-3 bg-rutaRed text-white rounded-xl font-bold shadow-lg shadow-rutaRed/20">
-                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-                <span>Panel de Control</span>
+        <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+            <a href="chofer-dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                Inicio
             </a>
-            <a href="#pedidos" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium">
-                <i data-lucide="package" class="w-5 h-5"></i>
-                <span>Mis Pedidos</span>
+            <a href="chofer-rutas.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                Mis Rutas
             </a>
-            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium">
-                <i data-lucide="map" class="w-5 h-5"></i>
-                <span>Rutas Activas</span>
+            <a href="chofer-checklist.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                Check List
             </a>
-            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium relative">
-                <i data-lucide="message-square" class="w-5 h-5"></i>
-                <span>Mensajería</span>
-                <span class="absolute right-4 w-2 h-2 bg-rutaRed rounded-full"></span>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 bg-rutaRed text-white rounded-xl transition-colors font-semibold text-sm shadow-md shadow-rutaRed/20">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                Incidencias
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                Mi Perfil
             </a>
         </nav>
 
-        <div class="p-4 border-t border-white/10">
-            <button class="flex items-center gap-4 px-4 py-3 text-gray-500 hover:text-white w-full group transition-colors">
-                <i data-lucide="log-out" class="w-5 h-5 group-hover:text-rutaRed"></i>
-                <span class="font-medium">Cerrar Sesión</span>
-            </button>
+        <div class="p-4 border-t border-gray-700">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                Soporte
+            </a>
         </div>
     </aside>
 
-    <div class="flex-1 flex flex-col min-w-0">
+    <main class="flex-1 flex flex-col h-screen overflow-hidden relative bg-rutaGray">
         
-        <header class="h-[80px] bg-white border-b border-rutaBorder flex items-center justify-between px-8 shrink-0 z-10">
-            <div class="flex items-center gap-4 text-gray-400 font-medium">
-                <span class="text-rutaDark font-bold">Dashboard</span>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-xs uppercase tracking-widest font-black">Vista General</span>
-            </div>
-            
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-3 pr-6 border-r border-rutaBorder">
-                    <div class="text-right hidden sm:block">
-                        <p class="font-bold text-rutaDark leading-none text-sm uppercase">Distribuidora Global S.A.</p>
-                        <span class="text-[10px] text-rutaRed font-black uppercase tracking-widest">Premium Partner</span>
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-rutaDark flex items-center justify-center text-white font-bold border-2 border-white shadow-md">
-                        <span class="text-xs">DG</span>
-                    </div>
+        <header class="bg-white h-16 md:h-20 flex items-center justify-between px-4 md:px-8 shadow-sm border-b border-rutaBorder z-10 shrink-0">
+            <div class="flex items-center gap-3">
+                <img src="../assets/img/brand/logo_white.png" alt="Ruta 360" class="md:hidden h-8 w-auto object-contain logo-to-black">
+                
+                <div class="hidden md:flex items-center gap-2">
+                    <span class="text-sm text-gray-400 font-medium">Panel Chofer</span>
+                    <span class="text-gray-400">/</span>
+                    <span class="text-sm text-rutaDark font-bold">Reportar Incidencia</span>
                 </div>
-                <button class="relative text-gray-400 hover:text-rutaRed transition-transform hover:scale-110">
-                    <i data-lucide="bell" class="w-6 h-6"></i>
-                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-rutaRed text-white text-[9px] flex items-center justify-center rounded-full font-black ring-2 ring-white">3</span>
+            </div>
+
+            <div class="flex items-center gap-4 md:gap-5 ml-auto">
+                <button class="p-2 text-rutaRed hover:text-[#b00f16] transition-colors relative">
+                    <svg class="w-6 h-6 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
                 </button>
+                <div class="w-10 h-10 md:w-9 md:h-9 rounded-full bg-rutaDark border-2 border-white shadow-md overflow-hidden flex items-center justify-center text-white font-bold text-xs">
+                    CH
+                </div>
             </div>
         </header>
 
-        <main class="flex-1 overflow-y-auto p-8 bg-[#f8f9fb]">
+        <div class="flex-1 p-4 md:p-8 overflow-y-auto flex flex-col items-center">
             
-            <div class="flex justify-between items-end mb-8">
+            <div class="w-full max-w-3xl mb-6">
+                <h1 class="text-[24px] md:text-[30px] font-display font-bold text-rutaDark mb-1 leading-tight">Centro de Incidencias</h1>
+                <p class="text-[14px] text-gray-500">Reporta problemas, demoras o accidentes en tiempo real.</p>
+            </div>
+
+            <div class="w-full max-w-3xl bg-yellow-50 border border-yellow-200 p-4 rounded-[16px] mb-6 flex gap-3 items-start shadow-sm">
+                <div class="text-yellow-600 bg-white p-2 rounded-full shadow-sm shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
                 <div>
-                    <h1 class="text-3xl font-display font-black text-rutaDark uppercase tracking-tighter italic leading-none">Control Logístico</h1>
-                    <p class="text-gray-500 font-medium mt-1">Monitoreo de flota y gestión de carga.</p>
-                </div>
-                <button class="px-6 py-3 bg-rutaRed text-white text-[12px] font-bold uppercase tracking-widest rounded-xl hover:bg-[#b00f16] transition-all shadow-lg shadow-rutaRed/30 flex items-center gap-2">
-                    <i data-lucide="plus" class="w-4 h-4"></i> Nuevo Pedido
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-                <div class="bg-white p-6 rounded-[24px] border border-rutaBorder shadow-sm">
-                    <div class="bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 text-rutaDark">
-                        <i data-lucide="truck" class="w-6 h-6"></i>
-                    </div>
-                    <p class="text-gray-400 font-bold text-[11px] uppercase tracking-wider">Servicios en Curso</p>
-                    <p class="text-4xl font-display font-black text-rutaDark">14</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-[24px] border-l-4 border-l-rutaRed shadow-sm">
-                    <div class="bg-red-50 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 text-rutaRed animate-pulse">
-                        <i data-lucide="alert-circle" class="w-6 h-6"></i>
-                    </div>
-                    <p class="text-rutaRed font-black text-[11px] uppercase tracking-wider">Alertas Activas</p>
-                    <p class="text-4xl font-display font-black text-rutaDark">02</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-[24px] border border-rutaBorder shadow-sm">
-                    <div class="bg-blue-50 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 text-blue-600">
-                        <i data-lucide="navigation" class="w-6 h-6"></i>
-                    </div>
-                    <p class="text-gray-400 font-bold text-[11px] uppercase tracking-wider">Entregas Hoy</p>
-                    <p class="text-4xl font-display font-black text-rutaDark">48</p>
-                </div>
-
-                <div class="bg-rutaDark p-6 rounded-[24px] shadow-xl text-white relative overflow-hidden">
-                    <p class="text-gray-400 font-bold text-[10px] uppercase tracking-widest mb-1">Ejecutivo Ruta 360</p>
-                    <p class="text-lg font-bold">Roberto Sánchez</p>
-                    <button class="mt-4 w-full py-2 bg-white/10 hover:bg-rutaRed rounded-lg text-[11px] font-black uppercase tracking-widest transition-all">Chat Directo</button>
+                    <h4 class="font-display font-bold text-yellow-800 text-sm">Información Importante</h4>
+                    <p class="text-[13px] text-yellow-700 mt-0.5">La ubicación de este reporte quedará registrada automáticamente a través del GPS de tu dispositivo.</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
-                <div class="lg:col-span-2 bg-white rounded-[24px] border border-rutaBorder shadow-sm relative overflow-hidden h-[400px]">
-                    <div class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-rutaBorder">
-                        <div class="flex items-center gap-3">
-                            <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-gray-500">Unidad #RT-2024-001</span>
-                        </div>
-                    </div>
-                    <div class="w-full h-full bg-[#e2e8f0] flex items-center justify-center relative">
-                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
-                        <div class="relative z-10 flex flex-col items-center">
-                            <div class="bg-rutaRed text-white p-3 rounded-full shadow-2xl map-dot">
-                                <i data-lucide="truck" class="w-6 h-6"></i>
+            <form class="w-full max-w-3xl flex flex-col gap-6 mb-16 md:mb-8">
+                
+                <div class="bg-white p-5 md:p-6 rounded-[20px] shadow-sm border border-rutaBorder">
+                    <label class="block text-[14px] font-bold text-rutaDark mb-4">¿Qué tipo de problema estás reportando?</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="tipo_incidencia" class="peer sr-only" checked>
+                            <div class="peer-checked:bg-rutaRed peer-checked:text-white peer-checked:border-rutaRed peer-checked:shadow-md border-2 border-gray-100 bg-gray-50 text-gray-600 text-xs font-bold uppercase tracking-wider py-3 px-2 rounded-xl text-center transition-all flex flex-col items-center gap-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                                Mecánico
                             </div>
-                        </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="tipo_incidencia" class="peer sr-only">
+                            <div class="peer-checked:bg-rutaRed peer-checked:text-white peer-checked:border-rutaRed peer-checked:shadow-md border-2 border-gray-100 bg-gray-50 text-gray-600 text-xs font-bold uppercase tracking-wider py-3 px-2 rounded-xl text-center transition-all flex flex-col items-center gap-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Accidente
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="tipo_incidencia" class="peer sr-only">
+                            <div class="peer-checked:bg-rutaRed peer-checked:text-white peer-checked:border-rutaRed peer-checked:shadow-md border-2 border-gray-100 bg-gray-50 text-gray-600 text-xs font-bold uppercase tracking-wider py-3 px-2 rounded-xl text-center transition-all flex flex-col items-center gap-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Retraso
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="tipo_incidencia" class="peer sr-only">
+                            <div class="peer-checked:bg-rutaRed peer-checked:text-white peer-checked:border-rutaRed peer-checked:shadow-md border-2 border-gray-100 bg-gray-50 text-gray-600 text-xs font-bold uppercase tracking-wider py-3 px-2 rounded-xl text-center transition-all flex flex-col items-center gap-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                                Carga
+                            </div>
+                        </label>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-[24px] border border-rutaBorder shadow-sm flex flex-col h-[400px] overflow-hidden">
-                    <div class="p-4 border-b border-rutaBorder bg-rutaGray/30 flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-rutaDark text-white text-[10px] flex items-center justify-center font-bold">CH</div>
-                        <p class="font-bold text-xs uppercase tracking-tight">Carlos Hernández (Chofer)</p>
-                    </div>
-                    <div class="flex-1 p-4 space-y-4 overflow-y-auto bg-rutaGray/10">
-                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-rutaBorder shadow-sm max-w-[90%]">
-                            <p class="text-xs font-medium italic">"Iniciando descarga en Sucursal Norte. Estimo 30 minutos."</p>
-                        </div>
-                    </div>
-                    <div class="p-3 bg-white border-t border-rutaBorder flex gap-2">
-                        <input type="text" placeholder="Escribir..." class="flex-1 bg-rutaGray rounded-xl px-4 py-2 text-xs border-none outline-none">
-                        <button class="bg-rutaDark text-white p-2.5 rounded-xl hover:bg-rutaRed transition-colors">
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                        </button>
-                    </div>
+                <div class="bg-white p-5 md:p-6 rounded-[20px] shadow-sm border border-rutaBorder">
+                    <label for="descripcion" class="block text-[14px] font-bold text-rutaDark mb-2">Descripción de la Incidencia</label>
+                    <p class="text-[12px] text-gray-400 mb-3">Brinda la mayor cantidad de detalles posible para que logística pueda ayudarte.</p>
+                    <textarea id="descripcion" rows="4" class="w-full bg-gray-50 border-2 border-gray-100 text-gray-700 text-sm rounded-xl focus:outline-none focus:ring-0 focus:border-rutaRed p-4 transition-colors" placeholder="Ej: Se pinchó el neumático trasero derecho en el km 45 de la ruta..."></textarea>
                 </div>
-            </div>
 
-            <section id="pedidos" class="bg-white rounded-[24px] border border-rutaBorder shadow-sm overflow-hidden mb-10">
-                <div class="p-6 border-b border-rutaBorder flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="bg-white p-5 md:p-6 rounded-[20px] shadow-sm border border-rutaBorder">
+                    <div class="flex justify-between items-center mb-4">
+                        <label class="block text-[14px] font-bold text-rutaDark">Evidencia Fotográfica</label>
+                        <span class="text-[11px] font-bold text-rutaRed bg-red-50 px-2 py-1 rounded-md">Opcional</span>
+                    </div>
+                    
+                    <label class="cursor-pointer w-full flex flex-col items-center justify-center p-8 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:border-rutaRed hover:bg-red-50 transition-all group">
+                        <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-gray-400 group-hover:text-rutaRed mb-3 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <span class="text-[14px] font-bold text-gray-600 group-hover:text-rutaRed">Toca para abrir la cámara o galería</span>
+                        <span class="text-[12px] text-gray-400 mt-1 text-center">Puedes subir hasta 3 fotos (Máx. 5MB c/u)</span>
+                        <input type="file" class="hidden" accept="image/*" capture="environment" multiple>
+                    </label>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-[16px] border border-gray-200 flex items-center gap-3">
+                    <div class="text-rutaDark">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
                     <div>
-                        <h3 class="font-display font-black text-rutaDark uppercase italic tracking-tight text-xl">Gestión de Pedidos</h3>
-                        <div class="flex gap-2 mt-4">
-                            <button class="px-4 py-1.5 rounded-lg bg-rutaDark text-white text-[10px] font-black uppercase">Todos</button>
-                            <button class="px-4 py-1.5 rounded-lg bg-rutaGray text-gray-500 text-[10px] font-bold uppercase hover:bg-rutaBorder">Pendientes</button>
-                            <button class="px-4 py-1.5 rounded-lg bg-rutaGray text-gray-500 text-[10px] font-bold uppercase hover:bg-rutaBorder">Entregados</button>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-gray-400"></i>
-                        <input type="text" placeholder="ID o Cliente..." class="bg-rutaGray border-none rounded-xl pl-10 pr-4 py-2 text-xs w-64">
+                        <span class="text-[11px] font-bold text-gray-500 uppercase tracking-widest block">Ubicación Actual Detectada</span>
+                        <span class="text-[13px] font-medium text-rutaDark">Lat: -34.1708, Lng: -70.7444 (Aprox.)</span>
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left">
-                        <thead>
-                            <tr class="bg-rutaGray/50 text-gray-400 text-[10px] font-black uppercase tracking-widest border-b border-rutaBorder">
-                                <th class="px-6 py-4">ID Pedido</th>
-                                <th class="px-6 py-4">Cliente / Destino</th>
-                                <th class="px-6 py-4">Prioridad</th>
-                                <th class="px-6 py-4 text-center">Estado</th>
-                                <th class="px-6 py-4 text-right">Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-rutaBorder">
-                            <tr class="hover:bg-rutaGray/30 transition-colors">
-                                <td class="px-6 py-5 font-display font-bold text-rutaDark">#ORD-7721</td>
-                                <td class="px-6 py-5 font-medium">
-                                    <p class="font-bold">Distribuidora Norte</p>
-                                    <span class="text-[10px] text-gray-400">Quilicura, RM</span>
-                                </td>
-                                <td class="px-6 py-5">
-                                    <span class="text-rutaRed font-black text-[10px] uppercase flex items-center gap-1">
-                                        <span class="w-1.5 h-1.5 bg-rutaRed rounded-full"></span> Crítica
-                                    </span>
-                                </td>
-                                <td class="px-6 py-5 text-center">
-                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-[10px] font-black uppercase tracking-widest">Preparando</span>
-                                </td>
-                                <td class="px-6 py-5 text-right">
-                                    <button class="w-8 h-8 rounded-lg bg-rutaGray hover:bg-rutaDark hover:text-white transition-all inline-flex items-center justify-center">
-                                        <i data-lucide="eye" class="w-4 h-4"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-rutaGray/30 transition-colors">
-                                <td class="px-6 py-5 font-display font-bold text-rutaDark">#ORD-7718</td>
-                                <td class="px-6 py-5 font-medium">
-                                    <p class="font-bold">Retail Logística S.A.</p>
-                                    <span class="text-[10px] text-gray-400">Maipú, RM</span>
-                                </td>
-                                <td class="px-6 py-5 text-blue-600 font-black text-[10px] uppercase">Normal</td>
-                                <td class="px-6 py-5 text-center">
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest">En Tránsito</span>
-                                </td>
-                                <td class="px-6 py-5 text-right">
-                                    <button class="w-8 h-8 rounded-lg bg-rutaGray hover:bg-rutaDark hover:text-white transition-all inline-flex items-center justify-center">
-                                        <i data-lucide="eye" class="w-4 h-4"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="p-4 bg-rutaGray/10 border-t border-rutaBorder text-center">
-                    <button class="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-rutaDark transition-colors">Ver todos los pedidos</button>
-                </div>
-            </section>
+                <button type="button" class="w-full py-4 bg-rutaRed text-white text-[14px] font-bold uppercase tracking-widest rounded-xl hover:bg-[#b00f16] transition-colors shadow-lg shadow-rutaRed/30 flex items-center justify-center gap-2 mt-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    Enviar Reporte
+                </button>
 
-        </main>
-    </div>
+            </form>
 
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
+            <footer class="w-full bg-gray-100 border-t border-gray-200 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4 mt-auto z-10 pb-20 md:pb-4">
+                <div class="flex items-center gap-4">
+                    <img src="../assets/img/brand/logo_white.png" alt="Ruta 360 Footer" class="h-8 w-auto object-contain logo-to-black opacity-60">
+                    <div class="h-6 w-[1px] bg-gray-300 hidden md:block"></div>
+                    <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+                        LOGÍSTICA EN TRANSPORTE
+                    </p>
+                </div>
+                <div class="text-[11px] font-bold text-gray-500 uppercase tracking-tighter">
+                    POR IDEASUT - <span id="current-year"></span>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white border-t border-rutaBorder pb-safe pt-2 px-6 flex justify-between items-center z-50 h-16 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <a href="chofer-dashboard.html" class="flex flex-col items-center text-gray-400 hover:text-rutaDark transition-colors">
+            <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            <span class="text-[10px] font-bold">Inicio</span>
+        </a>
+        <a href="chofer-rutas.html" class="flex flex-col items-center text-gray-400 hover:text-rutaDark transition-colors">
+            <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3

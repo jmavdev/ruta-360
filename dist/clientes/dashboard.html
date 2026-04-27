@@ -40,11 +40,10 @@
 </head>
 <body class="bg-rutaGray h-screen flex overflow-hidden font-sans text-[14px] text-rutaDark">
 
-    <aside class="w-64 bg-rutaDark text-white flex flex-col shrink-0 z-20 shadow-xl">
-        <div class="h-[80px] flex items-center px-6 border-b border-white/10">
-            <div class="flex items-center gap-3">
-                <img src="../assets/img/brand/logo_white.png" alt="Ruta 360" class="h-9 w-auto object-contain">
-            </div>
+    <aside class="hidden md:flex w-64 bg-rutaDark text-white flex-col shadow-xl transition-all duration-300 z-20 relative">
+        <div class="h-24 flex flex-col items-center justify-center border-b border-gray-700 bg-rutaDark pt-2 px-4">
+            <img src="../assets/img/brand/logo_white.png" alt="Ruta 360" class="h-12 w-auto object-contain">
+            <span class="text-[9px] font-bold text-gray-400 mt-1 uppercase tracking-[0.2em]">Logística en transporte</span>
         </div>
 
         <nav class="flex-1 px-4 py-8 space-y-2">
@@ -233,8 +232,21 @@
                         </button>
                     </div>
                 </div>
-            </div>
 
+                
+            </div>
+ <footer class="bg-gray-100 border-t border-gray-200 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4 mt-auto z-10 pb-20 md:pb-4">
+                <div class="flex items-center gap-4">
+                    <img src="../assets/img/brand/logo_white.png" alt="Ruta 360 Footer" class="h-8 w-auto object-contain logo-to-black opacity-60">
+                    <div class="h-6 w-[1px] bg-gray-300 hidden md:block"></div>
+                    <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+                        Logística en transporte
+                    </p>
+                </div>
+                <div class="text-[11px] font-bold text-gray-500 uppercase tracking-tighter">
+                    Por ideasut - <span id="current-year"></span>
+                </div>
+            </footer>
         </main>
     </div>
 
